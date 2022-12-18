@@ -27,21 +27,21 @@ int main()
         scanf("%s", &st[i].student_name);
         for (j=0;j<2;j++)
         {
-            printf("enter subject name:");
+            printf("\nEnter Subject Name:");
             scanf("%s",&st[i].info[j].subject_name);
-            printf("enter subject marks:");
+            printf("\nEnter Subject Marks:");
             scanf("%d",&st[i].info[j].marks);
         }
         
     }
-    printf("\nStudent Information List:");
+    printf("\nStudent Information List:\n");
     for (i = 0; i < 2; i++)
     {
         printf("\nRollno:%d, Name:%s", st[i].student_id, st[i].student_name);
-        printf("\nmarks:\n");
+        printf("\nMarks:\n");
         for (j=0;j<2;j++)
         {
-            printf("subject:%s, marks:%d",st[i].info[j].subject_name,st[i].info[j].marks);
+            printf("\nSubject:%s,\tmarks:%d",st[i].info[j].subject_name,st[i].info[j].marks);
             printf("\n");
         }
     }
