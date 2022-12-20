@@ -56,53 +56,56 @@ int main()
         totals[i] = (ptr + i)->total;
     }
 
-    // sorting the totals loop
+    // sorting the totals array
     for (int i = 0; i < noOfStudents; i++)
     {
         for (int j = 0; j < noOfStudents - i - 1; j++)
         {
             if (totals[j] < totals[j + 1])
             {
-                temp = totals[j + 1]; 
+                temp = totals[j + 1];
                 totals[j + 1] = totals[j];
                 totals[j] = temp;
             }
         }
-    }   
-
-    // remove duplicate totals from array 
-    int num = noOfStudents;
-    for(int i=0;i<num;i++){
-      for(int j = i+1; j < num; j++){
-         if(totals [i] == totals[j]){
-            for(int k = j; k <num; k++){
-               totals[k] = totals[k+1];
-            }
-            j--;
-            num--;
-         }
-      }
-   }
-
-    // setting rank based on its total if same total exists same rank will be given
-    for (int i=0; i< noOfStudents ; i++)
-    {
-           for (int j=0; j< noOfStudents ; j++) 
-           {
-                if ((totals[i]==(ptr+j)->total) && ( (ptr+j)->rank == 0))
-                {
-                    (ptr+j)->rank = i+1; // rank starts from 1 
-                }
-           }
     }
 
+    // remove duplicates from totals array
+    int num = noOfStudents;
+    for (int i = 0; i < num; i++)
+    {
+        for (int j = i + 1; j < num; j++)
+        {
+            if (totals[i] == totals[j])
+            {
+                for (int k = j; k < num; k++)
+                {
+                    totals[k] = totals[k + 1];
+                }
+                j--;
+                num--;
+            }
+        }
+    }
+
+    // setting rank based on its total if same total exists same rank will be given
+    for (int i = 0; i < noOfStudents; i++)
+    {
+        for (int j = 0; j < noOfStudents; j++)
+        {
+            if ((totals[i] == (ptr + j)->total) && ((ptr + j)->rank == 0))
+            {
+                (ptr + j)->rank = i + 1; // rank starts from 1
+            }
+        }
+    }
 
     // printing score board
     printf("\nStudent Board\n");
     printf("\nID\tName\tTotal\tRank");
     for (int i = 0; i < noOfStudents; i++)
     {
-        
+
         printf("\n%d\t%s\t%d\t%d", (ptr + i)->ID, (ptr + i)->name, (ptr + i)->total, (ptr + i)->rank);
 
         printf("\n");
